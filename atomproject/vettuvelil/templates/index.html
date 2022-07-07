@@ -1,0 +1,751 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+        ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+         }
+
+        li {
+        float: left;
+        }
+
+        li a, .dropbtn {
+        display: inline-block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        }
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: light green;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #454545;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+body {
+  font-family: 'open sans';
+  overflow-x: hidden; }
+
+img {
+  max-width: 100%; }
+
+.preview {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+  @media screen and (max-width: 996px) {
+    .preview {
+      margin-bottom: 20px; } }
+
+.preview-pic {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1; }
+
+.preview-thumbnail.nav-tabs {
+  border: none;
+  margin-top: 15px; }
+  .preview-thumbnail.nav-tabs li {
+    width: 18%;
+    margin-right: 2.5%; }
+    .preview-thumbnail.nav-tabs li img {
+      max-width: 100%;
+      display: block; }
+    .preview-thumbnail.nav-tabs li a {
+      padding: 0;
+      margin: 0; }
+    .preview-thumbnail.nav-tabs li:last-of-type {
+      margin-right: 0; }
+
+.tab-content {
+  overflow: hidden; }
+  .tab-content img {
+    width: 100%;
+    -webkit-animation-name: opacity;
+            animation-name: opacity;
+    -webkit-animation-duration: .3s;
+            animation-duration: .3s; }
+
+.card {
+  margin-top: 50px;
+  background: #eee;
+  padding: 3em;
+  line-height: 1.5em; }
+
+@media screen and (min-width: 997px) {
+  .wrapper {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; } }
+
+.details {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+
+.colors {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1; }
+
+.product-title, .price, .sizes, .colors {
+  text-transform: UPPERCASE;
+  font-weight: bold; }
+
+.checked, .price span {
+  color: #ff9f1a; }
+
+.product-title, .rating, .product-description, .price, .vote, .sizes {
+  margin-bottom: 15px; }
+
+.product-title {
+  margin-top: 0; }
+
+.size {
+  margin-right: 10px; }
+  .size:first-of-type {
+    margin-left: 40px; }
+
+.color {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  height: 2em;
+  width: 2em;
+  border-radius: 2px; }
+  .color:first-of-type {
+    margin-left: 20px; }
+
+.add-to-cart, .like {
+  background: #ff9f1a;
+  padding: 1.2em 1.5em;
+  border: none;
+  text-transform: UPPERCASE;
+  font-weight: bold;
+  color: #fff;
+  -webkit-transition: background .3s ease;
+          transition: background .3s ease; }
+  .add-to-cart:hover, .like:hover {
+    background: #b36800;
+    color: #fff; }
+
+.not-available {
+  text-align: center;
+  line-height: 2em; }
+  .not-available:before {
+    font-family: fontawesome;
+    content: "\f00d";
+    color: #fff; }
+
+.orange {
+  background: #ff9f1a; }
+
+.green {
+  background: #85ad00; }
+
+.blue {
+  background: #0076ad; }
+
+.tooltip-inner {
+  padding: 1.3em; }
+
+@-webkit-keyframes opacity {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(3);
+            transform: scale(3); }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1); } }
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(3);
+            transform: scale(3); }
+  100% {
+</style>
+        <meta charset="utf-8">
+        <title>Vettuvelil ayurveda pharmacy - ayurveda Website Template</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
+
+        <!-- Favicon -->
+        <link href="img/10.jpg" rel="icon">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Nunito:600,700" rel="stylesheet">
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet ">
+        <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+        <link href="{% static 'lib/flaticon/font/flaticon.css" rel="stylesheet' %}">
+        <link href="{% static 'lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css' %}" rel="stylesheet"/>
+
+        <!-- Template Stylesheet -->
+        <link href="{% static 'css/style.css' %}" rel="stylesheet ">
+    </head>
+
+    <body>
+        <!-- Nav Bar Start -->
+        <div class="navbar navbar-expand-lg bg-light navbar-light">
+            <div class="container-fluid">
+                <a href="index.html" class="navbar-brand">Vettuvelil <span>Ayurpharma</span></a><br><br>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <body>
+
+
+<ul>
+  <li><a href="#home">Kashayam</a></li><br>
+  <li><a href="#news">Lehyam</a></li><br>
+  <li><a href="#news">ghritam</a></li><br>
+    <br><li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Thailam</a>
+    <div class="dropdown-content">
+      <a href={{i.get_url}}>{{i.name}}</a>>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+        <a href="#">Link 4</a>
+    </div>
+  </li>
+</ul>
+</body>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Nav Bar End -->
+
+        <!-- Carousel Start -->
+        <div class="carousel">
+            <div class="container-fluid">
+                <div class="owl-carousel">
+                    <div class="carousel-item">
+                        <div class="carousel-img">
+                            <img src="{% static 'img/04.jpg' %}" alt="Image">
+                        </div>
+                        <div class="carousel-text">
+                            <h1>Quality <span>ayurvedic products </span> at a click!</h1>
+                            <p>
+                                Best quality ayurvedic medicines mentioned in classical texts of Kerala Ayurveda.                       </p>
+                            <div class="carousel-btn">
+                                <a class="btn custom-btn" href="">View Medicines</a>
+                                <a class="btn custom-btn" href="">Book  an appointment</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-img">
+                            <img src="{% static 'img/13.jpg' %}" alt="Image">
+                        </div>
+                        <div class="carousel-text">
+                            <h1>Kerala’s <span>Best</span>Team of doctors</h1>
+                            <p>
+                              Best ayurveda doctors from kerala for online consultation and proper prescription of medicines.
+                            </p>
+                            <div class="carousel-btn">
+                                <a class="btn custom-btn" href="">View Medicines</a>
+                                <a class="btn custom-btn" href="">Book an appointment</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-img">
+                            <img src="{% static 'img/10.jpg' %}" alt="Image">
+                        </div>
+                        <div class="carousel-text">
+                            <h1>Fastest Medicines <span>Delivery</span></h1>
+                            <p>
+                                Authentic ayurvedic medicines at your doorstep in shortest period of time.                           </p>
+                            <div class="carousel-btn">
+                                <a class="btn custom-btn" href="">View Medicines</a>
+                                <a class="btn custom-btn" href="">Book an appointment</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Carousel End -->
+
+
+<!--        &lt;!&ndash; Booking Start &ndash;&gt;-->
+<!--        <div class="booking">-->
+<!--            <div class="container">-->
+<!--                <div class="row align-items-center">-->
+<!--                    <div class="col-lg-7">-->
+<!--                        <div class="booking-content">-->
+<!--                            <div class="section-header">-->
+<!--                                <p>Book An Appointment</p>-->
+<!--                                <h2>Book Your appointment For Online consultation with expert Ayurveda doctors</h2>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-5">-->
+<!--                        <div class="booking-form">-->
+<!--                            <form>-->
+<!--                                <div class="control-group">-->
+<!--                                    <div class="input-group">-->
+<!--                                        <input type="text" class="form-control" placeholder="Name" required="required" />-->
+<!--                                        <div class="input-group-append">-->
+<!--                                            <div class="input-group-text"><i class="far fa-user"></i></div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="control-group">-->
+<!--                                    <div class="input-group">-->
+<!--                                        <input type="email" class="form-control" placeholder="Email" required="required" />-->
+<!--                                        <div class="input-group-append">-->
+<!--                                            <div class="input-group-text"><i class="far fa-envelope"></i></div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="control-group">-->
+<!--                                    <div class="input-group">-->
+<!--                                        <input type="text" class="form-control" placeholder="Mobile" required="required" />-->
+<!--                                        <div class="input-group-append">-->
+<!--                                            <div class="input-group-text"><i class="fa fa-mobile-alt"></i></div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="control-group">-->
+<!--                                    <div class="input-group date" id="date" data-target-input="nearest">-->
+<!--                                        <input type="text" class="form-control datetimepicker-input" placeholder="Date" data-target="#date" data-toggle="datetimepicker"/>-->
+<!--                                        <div class="input-group-append" data-target="#date" data-toggle="datetimepicker">-->
+<!--                                            <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="control-group">-->
+<!--                                    <div class="input-group time" id="time" data-target-input="nearest">-->
+<!--                                        <input type="text" class="form-control datetimepicker-input" placeholder="Time" data-target="#time" data-toggle="datetimepicker"/>-->
+<!--                                        <div class="input-group-append" data-target="#time" data-toggle="datetimepicker">-->
+<!--                                            <div class="input-group-text"><i class="far fa-clock"></i></div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+
+<!--                                <div>-->
+<!--                                    <button class="btn custom-btn" type="submit">Book Now</button>-->
+<!--                                </div>-->
+<!--                            </form>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; Booking End &ndash;&gt;-->
+
+
+<!--        &lt;!&ndash; About Start &ndash;&gt;-->
+<!--        <div class="about">-->
+<!--            <div class="container">-->
+<!--                <div class="row align-items-center">-->
+<!--                    <div class="col-lg-6">-->
+<!--                            </button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-6">-->
+<!--                        <div class="about-content">-->
+<!--                            <div class="section-header">-->
+<!--                                <p>About Us</p>-->
+<!--                                <h2> Since 1990</h2>-->
+<!--                            </div>-->
+<!--                            <div class="about-text">-->
+<!--                                <p>-->
+<!--                                  In recent years The Internet has revolutionized the way we purchase things. Because of the numerous advantages and benefits, more and more people these days prefer buying things online over the conventional method of going into shops. In 2017, an estimated 1.66 billion people worldwide have purchased goods online. So why not bring this revolution into our ancient traditional form of Ayurvedic medicines.-->
+<!--                                </p>-->
+<!--                                <p>-->
+<!--                                  Currently more and more people are switching to Ayurveda which is a natural way of heeling the mind body and soul and at many times after a diagnosis the patient are not able to purchase the medicines at a convenient location. This is the soul aim and purpose of  vettuvelil AyurPharma! We will deliver the medicines that you require at the utmost quality right to your door step within the shortest possible time….-->
+
+
+<!--                                </p>-->
+<!--                                <a class="btn custom-btn" href="">Book An Appointment</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; About End &ndash;&gt;-->
+
+<!--        &lt;!&ndash; Food Start &ndash;&gt;-->
+<!--        <div class="food">-->
+<!--            <div class="container">-->
+<!--                <div class="row align-items-center">-->
+<!--                    <div class="col-md-4">-->
+<!--                        <div class="food-item">-->
+<!--                            <i class="flaticon-burger"></i>-->
+<!--                            <h2>Kashayam</h2>-->
+<!--                            <p>-->
+<!--                              Kashayam refers to a water decoction or water extract of a single herb or group of herbs and can be used for ailments like indigestion, cough and common cold etc. It is an ancient form of medicine that has been used for a long time. Many are very bitter in taste and the liquid is dark in color.-->
+<!--                            </p>-->
+<!--                            <a href="">View Medicines</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-4">-->
+<!--                        <div class="food-item">-->
+<!--                            <i class="flaticon-snack"></i>-->
+<!--                            <h2>Lehyam</h2>-->
+<!--                            <p>-->
+<!--                              Lehyams or electuaries are also known as herbal jams. They are semi-solid ayurvedic medicines prepared from sugar syrup, jaggery, herbal pulp, herbal powder, herbal decoctions and other ingredients.-->
+<!--                            </p>-->
+<!--                            <a href="">View Medicines</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-4">-->
+<!--                        <div class="food-item">-->
+<!--                            <i class="flaticon-cocktail"></i>-->
+<!--                            <h2>Thailam</h2>-->
+<!--                            <p>-->
+<!--                              Thaila (Thailam), or sesame oil medicated with herbal mixes, is an extremely useful category of Ayurvedic medicine. Its potency can be increased during preparation through the addition of specific ingredients.-->
+<!--                            </p>-->
+<!--                            <a href="">View Medicines</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; Food End &ndash;&gt;-->
+
+
+        <!-- Menu Start -->
+
+        <div class="container">
+               <div class="section-header text-center">
+                    <p>Medicine List</p>
+                    <h2> Ayurveda Medicines</h2>
+                </div>
+		<div class="card">
+			<div class="container-fluid">
+				<div class="wrapper row">
+                    {% for i in pr %}
+					<div class="preview col-md-6">
+						<div class="preview-pic tab-content">
+						  <div class="tab-pane active" id="pic-1"><img src="{{i.img.url}}" /><br></div>
+						</div>
+					</div>
+					<div class="details col-md-6">
+						<h3 class="product-title"><a href="{{i.get_url}}">{{i.name}}</a></h3>
+                        <p>{{i.desc|truncatechars:80}}</p>
+						<h4 class="price">current price: <span><strong>Rs.{{i.price}}</strong></span></h4>
+
+						<div class="action">
+							<button class="add-to-cart btn btn-success" type="button">Add to cart</button>
+							<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+						</div>
+					</div>
+                    {% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+<!--        <div class="menu">-->
+<!--            <div class="container">-->
+<!--                <div class="section-header text-center">-->
+<!--                    <p>Medicine List</p>-->
+<!--                    <h2> Ayurveda Medicines</h2>-->
+<!--                </div>-->
+<!--                <div class="menu-tab">-->
+<!--                    <ul class="nav nav-pills justify-content-center">-->
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link active" data-toggle="pill" href="#burgers">Kashayam</a>-->
+<!--                        </li>-->
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link" data-toggle="pill" href="#snacks">Lehyam</a>-->
+<!--                        </li>-->
+<!--                        <li class="nav-item">-->
+<!--                            <a class="nav-link" data-toggle="pill" href="#beverages">Thailam</a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                    <div class="tab-content">-->
+<!--                        <div id="burgers" class="container tab-pane active">-->
+<!--                            <div class="row">-->
+<!--                                {% for i in pr %}-->
+<!--                                <div class="col-lg-7 col-md-12">-->
+<!--                                  &lt;!&ndash; &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;for loop start&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; &ndash;&gt;-->
+<!--                                    <div class="menu-item">-->
+<!--                                        <div class="menu-img">-->
+<!--                                            <img class="card-img-top" src="{{i.img.url}}" alt="Card image cap">-->
+<!--                                        </div>-->
+<!--                                        <div class="one-third">-->
+<!--                                            <h3><span><a href={{i.get_url}}>{{i.name}}</a></span> <strong>Rs.{{i.price}}</strong></h3>-->
+<!--                                            <p>{{i.desc|truncatechars:80}}</p>-->
+<!--                                        </div><br>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                {% endfor %}-->
+<!--                                <div class="col-lg-5 d-none d-lg-block">-->
+<!--                                    <img src="{% static 'img/03.jpg' %}" alt="Image">-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div id="snacks" class="container tab-pane fade">-->
+<!--                            <div class="row">-->
+<!--                                {% for i in pr %}-->
+<!--                                <div class="col-lg-7 col-md-12">-->
+<!--                                    <div class="menu-item">-->
+<!--                                        <div class="menu-img">-->
+<!--                                            <img src="{{i.img.url}}" alt="Image">-->
+<!--                                        </div>-->
+<!--                                        <div class="menu-text">-->
+<!--                                            <h3><span>{{i.name}}</span> <strong>Rs.{{i.price}}</strong></h3>-->
+<!--                                            <p>{{i.desc|truncatechars:80}}</p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                {% endfor %}-->
+<!--                                <div class="col-lg-5 d-none d-lg-block">-->
+<!--                                    <img src="{% static 'img/06.jpg' %}" alt="Image">-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div id="beverages" class="container tab-pane fade">-->
+<!--                            <div class="row">-->
+<!--                                {% for i in pr %}-->
+<!--                                <div class="col-lg-7 col-md-12">-->
+<!--                                    <div class="menu-item">-->
+<!--                                        <div class="menu-img">-->
+<!--                                            <img src="{{i.img.url}}" alt="Image">-->
+<!--                                        </div>-->
+<!--                                        <div class="menu-text">-->
+<!--                                            <h3><span>{{i.name}}</span> <strong>Rs.{{i.price}}</strong></h3>-->
+<!--                                            <p>{{i.desc|truncatechars:80}}</p>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                {% endfor %}-->
+<!--                                <div class="col-lg-5 d-none d-lg-block">-->
+<!--                                    <img src="{% static 'img/09.jpg' %}" alt="Image">-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; Menu End &ndash;&gt;-->
+
+        <!-- Contact Start -->
+        <div class="contact">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p>Contact Us</p>
+                    <h2>Contact For Any Query</h2>
+                </div>
+                <div class="row align-items-center contact-information">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="contact-info">
+                            <div class="contact-icon">
+                                <i class="fa fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Address</h3>
+                                <p>123 Street, NY, USA</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="contact-info">
+                            <div class="contact-icon">
+                                <i class="fa fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Call Us</h3>
+                                <p>+012 345 6789</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="contact-info">
+                            <div class="contact-icon">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Email Us</h3>
+                                <p>info@example.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="contact-info">
+                            <div class="contact-icon">
+                                <i class="fa fa-share"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Follow Us</h3>
+                                <div class="contact-social">
+                                    <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a href=""><i class="fab fa-youtube"></i></a>
+                                    <a href=""><i class="fab fa-instagram"></i></a>
+                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row contact-form">
+                    <div class="col-md-6">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1600663868074!5m2!1sen!2sbd" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="success"></div>
+                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                            <div class="control-group">
+                                <input type="text" class="form-control" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="email" class="form-control" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="text" class="form-control" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <textarea class="form-control" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div>
+                                <button class="btn custom-btn" type="submit" id="sendMessageButton">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contact End -->
+
+        <!-- Footer Start -->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="footer-contact">
+                                    <h2>Our Address</h2>
+                                    <p><i class="fa fa-map-marker-alt"></i>123 Street, New York, USA</p>
+                                    <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
+                                    <p><i class="fa fa-envelope"></i>info@example.com</p>
+                                    <div class="footer-social">
+                                        <a href=""><i class="fab fa-twitter"></i></a>
+                                        <a href=""><i class="fab fa-facebook-f"></i></a>
+                                        <a href=""><i class="fab fa-youtube"></i></a>
+                                        <a href=""><i class="fab fa-instagram"></i></a>
+                                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="footer-link">
+                                    <h2>Quick Links</h2>
+                                    <a href="">Terms of use</a>
+                                    <a href="">Privacy policy</a>
+                                    <a href="">Cookies</a>
+                                    <a href="">Help</a>
+                                    <a href="">FQAs</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="footer-newsletter">
+                            <h2>Newsletter</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet elit. Quisque eu lectus a leo dictum nec non quam. Tortor eu placerat rhoncus, lorem quam iaculis felis, sed lacus neque id eros.
+                            </p>
+                            <div class="form">
+                                <input class="form-control" placeholder="Email goes here">
+                                <button class="btn custom-btn">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="container">
+                    <p>Copyright &copy; <a href="#">Your Site Name</a>, All Right Reserved.</p>
+                    <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+        <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'lib/tempusdominus/js/moment.min.js' %}"></script>
+        <script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
+        <script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+
+        <!-- Contact Javascript File -->
+        <script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
+        <script src="{% static 'mail/contact.js' %}"></script>
+
+        <!-- Template Javascript -->
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>
